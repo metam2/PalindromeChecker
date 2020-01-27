@@ -16,14 +16,37 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+  String newWord = format(word);
+  String rev = format(reverse(word));
+  return newWord.equals(rev);
 }
 public String reverse(String str)
 {
     String sNew = new String();
-    //your code here
+    for(int i = str.length() - 1; i >= 0; i--)
+    {
+      sNew += str.substring(i, i + 1);
+    }
     return sNew;
+}
+
+//formats a string to have no punctuation marks, capitalization, or spaces
+public String format(String str)
+{
+  String out = new String();
+  for (int i = 0; i < str.length(); i++)
+  {
+    char letter = str.charAt(i);
+    if(Character.isLetter(letter))
+    {
+      out += Character.toLowerCase(letter);
+    }
+    else
+    {
+      continue;
+    }
+  }
+  return out;
 }
 
 
